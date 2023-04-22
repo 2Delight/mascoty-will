@@ -1,0 +1,18 @@
+[package]
+name = "mascoty-will"
+version = "0.1.0"
+description = "WASM website of Mascoty Taurine app"
+authors = ["offluck"]
+license = "MIT"
+repository = ""
+edition = "2021"
+rust-version = "1.57"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+yew = { version = "0.20", features = ["csr"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rand = "0.8"
+getrandom = { version = "0.2", features = ["js"] }
+yew-stdweb = "0.18"
