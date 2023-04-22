@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  align-items: center;
+  // align-items: center;
   display: flex;
   justify-content: center;
 
@@ -19,17 +19,24 @@ main {
   text-align: center;
 }
 
-.logo {
-  height: 20em;
+.mascot {
+  align-self: center;
 }
 
-.heart:after {
-  content: "❤️";
-
-  font-size: 1.75em;
+img {
+  position: absolute;
+  height: 40%;
+  width: auto;
 }
 
-h1 + .subtitle {
-  display: block;
-  margin-top: -1em;
+.face {
+  z-index: 0;
+}
+
+.eyes {
+  z-index: 1;
+}
+
+.lips {
+  z-index: 2;
 }

@@ -26,6 +26,28 @@ pub enum Message {
     GetRandom,
 }
 
+impl Mascot {
+    fn get_face_path(&self) -> String {
+        format!("assets/images/raw-mascot/{:?}/face.png", self.emotion,).to_lowercase()
+    }
+
+    fn get_eyes_path(&self) -> String {
+        format!(
+            "assets/images/raw-mascot/{:?}/eyes/{:?}.png",
+            self.emotion, self.eyes,
+        )
+        .to_lowercase()
+    }
+
+    fn get_lips_path(&self) -> String {
+        format!(
+            "assets/images/raw-mascot/{:?}/lips/{:?}.png",
+            self.emotion, self.lips,
+        )
+        .to_lowercase()
+    }
+}
+
 impl Component for Mascot {
     type Message = Message;
     type Properties = ();
@@ -45,10 +67,15 @@ impl Component for Mascot {
 
     fn view(&self, ctx: &yew::Context<Self>) -> yew::Html {
         html! {
-            <main>
-                <p>{ format!("Mascot: {:?}", get_random_mascot()) }</p>
+            <div class="mascot">
+                <div class="images">
+                    <img class="face" src={ self.get_face_path() } alt="Face" />
+                    <img class="eyes" src={ self.get_eyes_path() } alt="Eyes" />
+                    <img class="lips" src={ self.get_lips_path() } alt="Lips" />
+                    <p>{ format!("Mascot: {:?}", self) }</p>
+                </div>
                 <button onclick={ ctx.link().callback(|_| Message::GetRandom) }>{ "get new mascot!" }</button>
-            </main>
+            </div>
         }
     }
 }
