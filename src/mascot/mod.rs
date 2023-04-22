@@ -1,6 +1,6 @@
-mod emotion;
-mod eyes;
-mod lips;
+pub mod emotion;
+pub mod eyes;
+pub mod lips;
 
 use emotion::Emotion;
 use eyes::Eyes;
