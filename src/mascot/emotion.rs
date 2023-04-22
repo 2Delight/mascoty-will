@@ -1,28 +1,20 @@
-use std::fmt::{Debug, Display, Formatter, Result};
+use std::{fmt::{Debug, Display, Formatter, Result}, default};
 
-use serde::{Serialize, Deserialize};
 use rand::{
     distributions::{Distribution, Standard},
     Rng,
 };
 
 /// Represents 1 of 7 basic emotions supported by model.
-#[derive(Serialize, Deserialize, Default, PartialEq, Clone, Copy)]
+#[derive(Debug, Default, Clone, Copy)]
 pub enum Emotion {
-    #[serde(rename="angry")]
     Angry = 0,
-    #[serde(rename="disgust")]
     Disgust,
-    #[serde(rename="fear")]
     Fear,
-    #[serde(rename="happy")]
     Happy,
-    #[serde(rename="neutral")]
     #[default]
     Neutral,
-    #[serde(rename="sad")]
     Sad,
-    #[serde(rename="surprise")]
     Surprise,
 }
 
@@ -59,26 +51,6 @@ impl Emotion {
     /// ```
     pub fn to_num(&self) -> u8 {
         *self as u8
-    }
-}
-
-impl Debug for Emotion {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
-        match self {
-            Self::Angry => write!(f, "angry"),
-            Self::Disgust => write!(f, "disgust"),
-            Self::Fear => write!(f, "fear"),
-            Self::Happy => write!(f, "happy"),
-            Self::Neutral => write!(f, "neutral"),
-            Self::Sad => write!(f, "sad"),
-            Self::Surprise => write!(f, "surprise"),
-        }
-    }
-}
-
-impl Display for Emotion {
-    fn fmt(&self, f: &mut Formatter) -> Result {
-        write!(f, "{:?}", self)
     }
 }
 
