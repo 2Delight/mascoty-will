@@ -6,7 +6,7 @@ use rand::{
 };
 
 /// Represents 1 of 7 basic emotions supported by model.
-#[derive(Debug, Default, Clone, Copy)]
+#[derive(Debug, Default, Clone, Copy, PartialEq)]
 pub enum Emotion {
     Angry = 0,
     Disgust,
