@@ -72,8 +72,8 @@ impl Component for Mascot {
                     <img class="face" src={ self.get_face_path() } alt="Face" />
                     <img class="eyes" src={ self.get_eyes_path() } alt="Eyes" />
                     <img class="lips" src={ self.get_lips_path() } alt="Lips" />
-                    <p>{ format!("Mascot: {:?}", self) }</p>
                 </div>
+                <p>{ format!("Mascot: {:?}", self) }</p>
                 <button onclick={ ctx.link().callback(|_| Message::GetRandom) }>{ "get new mascot!" }</button>
             </div>
         }

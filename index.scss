@@ -20,11 +20,16 @@ main {
 }
 
 .mascot {
+  position: relative;
   align-self: center;
 }
 
+.images {
+  position: relative;
+}
+
 img {
-  position: absolute;
+  position: fixed;
   height: 40%;
   width: auto;
 }
