@@ -1,33 +1,36 @@
-name: pr_check
+name: Test
 
 on:
-  workflow_dispatch:
   push:
+    branches: ["master", "ci"]
   pull_request:
-    branches: [ master ]
+    branches: ["master", "ci"]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  linux:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: install toolchain
+
+    - name: Install ToolChain
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
         target: wasm32-unknown-unknown
         override: true
         profile: minimal
-    - name: Install trunk
+
+    - name: Install Trunk
       uses: jetli/trunk-action@v0.1.0
       with:
         version: 'latest'
+
     - name: Build
       run: trunk build
-    - name: Run tests
-      run: cargo test --verbose
+
+    - name: Test
+      run: cargo test --verbose --verbose
