@@ -7,6 +7,8 @@ use eyes::Eyes;
 use lips::Lips;
 use yew::prelude::*;
 
+use yew_hooks::prelude::use_interval;
+
 #[derive(Debug, Default)]
 pub struct Mascot {
     pub eyes: Eyes,
@@ -14,19 +16,19 @@ pub struct Mascot {
     pub emotion: Emotion,
 }
 
-pub fn get_random_mascot() -> Mascot {
-    Mascot {
-        eyes: rand::random(),
-        lips: rand::random(),
-        emotion: rand::random(),
-    }
-}
-
 pub enum Message {
     GetRandom,
 }
 
 impl Mascot {
+    pub fn get_random_mascot() -> Mascot {
+        Mascot {
+            eyes: rand::random(),
+            lips: rand::random(),
+            emotion: rand::random(),
+        }
+    }
+
     fn get_face_path(&self) -> String {
         format!("assets/images/raw-mascot/{:?}/face.png", self.emotion,).to_lowercase()
     }
@@ -48,34 +50,27 @@ impl Mascot {
     }
 }
 
-impl Component for Mascot {
-    type Message = Message;
-    type Properties = ();
-
-    fn create(_ctx: &yew::Context<Self>) -> Self {
-        Mascot::default()
+#[function_component(MascotState)]
+pub fn mascot_interval() -> Html {
+    let mascot_state = use_state(|| Mascot::default());
+    {
+        let mascot_state = mascot_state.clone();
+        use_interval(
+            move || {
+                mascot_state.set(Mascot::get_random_mascot());
+            },
+            500,
+        );
     }
 
-    fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
-        match msg {
-            Message::GetRandom => {
-                *self = get_random_mascot();
-                true
-            }
-        }
-    }
-
-    fn view(&self, ctx: &yew::Context<Self>) -> yew::Html {
-        html! {
-            <div class="mascot">
-                <div class="images">
-                    <img class="face" src={ self.get_face_path() } alt="Face" />
-                    <img class="eyes" src={ self.get_eyes_path() } alt="Eyes" />
-                    <img class="lips" src={ self.get_lips_path() } alt="Lips" />
-                </div>
-                <p>{ format!("Mascot: {:?}", self) }</p>
-                <button onclick={ ctx.link().callback(|_| Message::GetRandom) }>{ "get new mascot!" }</button>
+    html! {
+        <div class="mascot">
+            <div class="images">
+                <img class="face" src={ mascot_state.get_face_path() } alt="Face" />
+                <img class="eyes" src={ mascot_state.get_eyes_path() } alt="Eyes" />
+                <img class="lips" src={ mascot_state.get_lips_path() } alt="Lips" />
             </div>
-        }
+            <p>{ format!("Mascot: {:?}", mascot_state) }</p>
+        </div>
     }
 }
