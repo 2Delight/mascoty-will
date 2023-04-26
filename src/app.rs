@@ -1,7 +1,6 @@
 use yew::prelude::*;
 
-use crate::mascot::{MascotState};
-
+use crate::mascot::MascotState;
 
 #[function_component(App)]
 pub fn app() -> Html {

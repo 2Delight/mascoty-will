@@ -22,10 +22,10 @@ impl Emotion {
     /// Converts number into emotion.
     /// ```
     /// use mascoty_will::mascot::emotion::Emotion;
-    /// 
+    ///
     /// let emotion = Emotion::from_num(0);
     /// assert!(emotion == Emotion::Angry);
-    /// 
+    ///
     /// let emotion = Emotion::from_num(100);
     /// assert!(emotion == Emotion::Neutral);
     /// ```
@@ -45,7 +45,7 @@ impl Emotion {
     /// Converts emotion into number.
     /// ```
     /// use mascoty_will::mascot::emotion::Emotion;
-    /// 
+    ///
     /// let emotion = Emotion::Fear;
     /// assert!(emotion.to_num() == 2);
     /// ```
