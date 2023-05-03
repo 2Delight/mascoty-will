@@ -18,23 +18,23 @@ pub enum Route {
 
 pub fn switch(route: Route) -> Html {
     match route {
-        Route::Main => html!{
+        Route::Main => html! {
             <>
                 <h1> {"Welcome to Mascoty application official website!"} </h1>
                 <MascotInterval/>
             </>
         },
-        Route::Mascoty => html!{
+        Route::Mascoty => html! {
             <>
                 <h1> {"Here you can check out our app functionality!"} </h1>
             </>
         },
-        Route::Downloads => html!{
+        Route::Downloads => html! {
             <>
                 <h1> {"You can see available downloads here!"} </h1>
             </>
         },
-        Route::NotFound => html!{
+        Route::NotFound => html! {
             <>
                 <h1> {"Page not found!"} </h1>
                 <SadMascot/>

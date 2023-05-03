@@ -37,3 +37,6 @@ jobs:
 
     - name: Check Format
       run: cargo fmt --all -- --check
+
+    - name: Check Warnings
+      run: cargo clippy -- -D warnings

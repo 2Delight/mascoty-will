@@ -74,7 +74,7 @@ pub fn mascot_interval() -> Html {
 
 #[function_component(MascotInterval)]
 pub fn mascot_interval() -> Html {
-    let mascot_state = use_state(|| Mascot::default());
+    let mascot_state = use_state(Mascot::default);
     {
         let mascot_state = mascot_state.clone();
         use_interval(
