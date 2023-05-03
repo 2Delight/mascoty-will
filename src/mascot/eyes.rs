@@ -3,7 +3,7 @@ use rand::{
     Rng,
 };
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq, Clone, Copy)]
 pub enum Eyes {
     Closed,
     #[default]
