@@ -26,11 +26,11 @@ jobs:
       - name: Build
         run: trunk build --release --public-url /mascoty-will/
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
 
-    steps:
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v3
         with:
