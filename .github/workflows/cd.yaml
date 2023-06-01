@@ -8,21 +8,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v3
+
+      - name: Setup Toolchain
+        uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           target: wasm32-unknown-unknown
 
-      - uses: jetli/trunk-action@v0.1.0
-      - uses: jetli/wasm-bindgen-action@v0.1.0
+      - name: Install Trunk
+        uses: jetli/trunk-action@v0.1.0
+        with:
+          version: 'latest'
 
-      - uses: actions/checkout@v3
+      - uses: jetli/wasm-bindgen-action@v0.1.0
 
       - name: Build
         run: trunk build --release --public-url /mascoty-will/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v1
@@ -39,4 +41,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
