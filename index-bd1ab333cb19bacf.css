@@ -1,0 +1,47 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #444444, #009a5b);
+  font-size: 1.5rem;
+}
+
+main {
+  color: #fff6d5;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.mascot {
+  position: relative;
+  align-self: center;
+}
+
+.images {
+  position: relative;
+}
+
+img {
+  position: fixed;
+  height: 40%;
+  width: auto;
+}
+
+.face {
+  z-index: 0;
+}
+
+.eyes {
+  z-index: 1;
+}
+
+.lips {
+  z-index: 2;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../index.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;AAAA;EAEE;EACA;;;AAGF;EAEE;EACA;EAEA;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE%22,%22file%22:%22index.css%22%7D */

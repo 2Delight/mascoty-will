@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+
+  <link rel="icon" href="assets/images/mascoty.ico" sizes="128x128"/>
+  <link rel="stylesheet" href="/mascoty-will/index-bd1ab333cb19bacf.css" integrity="sha384-yBeIH49d7De2PTPXP4e3wVS5YQl0i+wIAOyldmeAZhKi+YGXkJcIElCQu5RC7br1"/>
+  
+  
+<script type="module">
+import init, * as bindings from '/mascoty-will/bin-206aa0dc33779768.js';
+const wasm = await init({ module_or_path: '/mascoty-will/bin-206aa0dc33779768_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+
+  <title>Mascoty</title>
+<link rel="modulepreload" href="/mascoty-will/bin-206aa0dc33779768.js" crossorigin="anonymous" integrity="sha384-r8pRAPwfRo6+i6Nzv3L1KuCzSgPVa/3Nr+JdWfQwHlCJDyOP/PY9Qeysqoqi4lWt"><link rel="preload" href="/mascoty-will/bin-206aa0dc33779768_bg.wasm" crossorigin="anonymous" integrity="sha384-08vgwsanUiytanECatNsGUeWpJph59q7Re4y4WCtuFpoJl94tER1XnoPUKTbmAfg" as="fetch" type="application/wasm"></head>
+
+</html>
