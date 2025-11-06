@@ -28,7 +28,7 @@ jobs:
       - uses: jetli/wasm-bindgen-action@v0.1.0
 
       - name: Build
-        run: trunk build --release --public-url /mascoty-will/
+        run: trunk build --public-url /mascoty-will/
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
